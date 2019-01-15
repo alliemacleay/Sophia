@@ -1,0 +1,4 @@
+notes/*.*
+data/output/*.*
+data/hidden/*.*
+run_aln.sh
