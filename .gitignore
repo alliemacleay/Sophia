@@ -2,3 +2,7 @@ notes/*.*
 data/output/*.*
 data/hidden/*.*
 run_aln.sh
+venv/*
+.idea*
+*.egg-info/*
+*__pycache__*
