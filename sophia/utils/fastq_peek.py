@@ -47,7 +47,8 @@ def df_seq_pos(row, prlist, method=find_exact):
     else:
         return method(prlist, seq)
 
-def generate_fastq_counts(fastq1, fastq2, primer_file, adapter_file, output_file, test=False):
+
+def generate_fastq_counts(fastq1, fastq2, primer_file, adapter_file, test=False):
     # load primers and adapters
     primers = pd.read_csv(primer_file, sep="\t")
     adapters = pd.read_csv(adapter_file, sep="\t", header=None, index_col=0)
@@ -78,4 +79,4 @@ def generate_fastq_counts(fastq1, fastq2, primer_file, adapter_file, output_file
     df2 = df2.rename(columns={'primer_pos': 'primer_pos2', 'adapter_pos': 'adapter_pos2', 'primer_id': 'primer_id2'})
     df_comb = pd.concat(
         [df1[['primer_pos', 'adapter_pos', 'primer_id']], df2[['primer_pos2', 'adapter_pos2', 'primer_id2']]], axis=1)
-    df_comb.write_csv(output_file, sep='\t', index=False)
+    return df_comb
